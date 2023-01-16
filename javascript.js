@@ -1,6 +1,5 @@
-let age =25;
-let message = 'Hello';
-let user = 'John';
-alert(message);
-alert(user);
-alert(age);
+
+function lastLetter(string) {
+    return string.charAt(string.length - 1);
+}
+console.log(lastLetter('fhdfg'));
