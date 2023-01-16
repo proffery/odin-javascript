@@ -1,2 +1,2 @@
-# odin-javascript
-odin javascript fondation
+rock-paper-scissors
+
