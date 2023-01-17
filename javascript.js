@@ -56,20 +56,21 @@ function game() {
         if (round.i.startsWith('You Won')) {
             playerWins++;
         }
-
-        if (round.i.startsWith('You Lose')) {
+        else if (round.i.startsWith('You Lose')) {
             computerWins++;
         }
-
-        if (round.i.startsWith('No')) {
+        else if (round.i.startsWith('No')) {
             draws++;
+        }
+        else {
+            i--;
         }
         console.log(round.i);
     }
+
     if (computerWins > playerWins) {
         winner = 'Computer';
     }
-
     else if(computerWins < playerWins) {
         winner = 'Player';
     }
