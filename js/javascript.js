@@ -2,9 +2,7 @@ let computerWins = 0;
 let playerWins = 0;
 let draws = 0;
 const GAMES = 5;
-const rockButton = document.querySelector('#rock');
-const paperButton = document.querySelector('#paper');
-const scissorsButton = document.querySelector('#scissors');
+const keys = document.querySelectorAll('.key');
 
 function getComputerChoice() {
     let cpChoise = Math.floor(Math.random() * 3);
@@ -19,54 +17,58 @@ function getComputerChoice() {
     }
 }
 
-function playRound(e, computerSelection) {
-    computerSelection = getComputerChoice();
-    playerSelection = e.target.id;
-        if (playerSelection === undefined) {
-            console.log('Input ERROR!');
-            return 'Input ERROR!';
-        }
+function playRound(e) {  
+    const computerSelection = getComputerChoice();
+    const playerSelection = e.target.id;
+    e.stopPropagation();
+    if (playerSelection === undefined) {
+        console.log('Input ERROR!');
+        return 'Input ERROR!';
+    }
 
-        else
-        if (computerSelection === playerSelection) {
-            draws++;
-            console.log('No winners...');
-            return 'No winners...'
-        }
+    else
+    if (computerSelection === playerSelection) {
+        draws++;
+        console.log('No winners...');
+        return 'No winners...'
+    }
 
-        else 
-        if (playerSelection === 'rock' &&  computerSelection === 'scissors' ||
-            playerSelection === 'scissors' &&  computerSelection === 'paper' ||
-            playerSelection === 'paper' &&  computerSelection === 'rock') {
-            playerWins++;
-            console.log(`You Won, ${playerSelection} beats ${computerSelection}!`);
-            return `You Won, ${playerSelection} beats ${computerSelection}!`;
-        }       
-        else {
-            computerWins++
-            console.log(`You Lose, ${computerSelection} beats ${playerSelection}!`);
-            return `You Lose, ${computerSelection} beats ${playerSelection}!`;
-        }
+    else 
+    if (playerSelection === 'rock' &&  computerSelection === 'scissors' ||
+        playerSelection === 'scissors' &&  computerSelection === 'paper' ||
+        playerSelection === 'paper' &&  computerSelection === 'rock') {
+        playerWins++;
+        console.log(`You Won, ${playerSelection} beats ${computerSelection}!`);
+        return `You Won, ${playerSelection} beats ${computerSelection}!`;
+    }       
+    else {
+        computerWins++
+        console.log(`You Lose, ${computerSelection} beats ${playerSelection}!`);
+        return `You Lose, ${computerSelection} beats ${playerSelection}!`;
+    }    
 }
 
 function isEnd() {
     if (playerWins != GAMES || computerWins != GAMES) {
-        let winner;
-        if (computerWins > playerWins) {
-            winner = 'Computer';
-        }
-        else if(computerWins < playerWins) {
-            winner = 'Player';
-        }
-        else {
-            winner = 'No one win'
-        }
+        return false;
     }
+
     else {
-        return `WINNER - ${winner}!\nGame report:\nComputer Wins - ${computerWins}\nPlayer Wins - ${playerWins}\nDraws - ${draws}`
+        return true;
     }
 }
- 
+
+function playSound(e) {
+    const audio = document.querySelector(`audio[id="${e.target.id}"]`)
+    const key = document.querySelector(`div#${e.target.id}`);
+    audio.play();
+    key.classList.add('playing');
+}
+
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+} 
     // if (isEnd) {
     //     let winner;
     //     if (computerWins > playerWins) {
@@ -115,26 +117,8 @@ function isEnd() {
 //     return `WINNER - ${winner}!\nGame report:\nComputer Wins - ${computerWins}\nPlayer Wins - ${playerWins}\nDraws - ${draws}`
 // }
 
-rockButton.addEventListener('click', playRound);
-paperButton.addEventListener('click', playRound);
-scissorsButton.addEventListener('click', playRound);
-
-
-// function playSound(e) {
-//     const audio = this.document.querySelector(`audio[data-key="${e.keyCode}"]`);
-//     const key = this.document.querySelector(`[data-key="${e.keyCode}"]`);
-//     audio.play();
-//     key.classList.add('playing');
-// }
-
-// function removeTransition(e) {
-//     if (e.propertyName !== 'transform') return;
-// this.classList.remove('playing');
-// }
-
-// const keys = document.querySelectorAll('.key');
-// keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-// window.addEventListener('keydown', playSound);
-
+keys.forEach(key => key.addEventListener('click', playRound));
+keys.forEach(key => key.addEventListener('click', playSound));
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 //console.log(game());
 
