@@ -1,57 +1,63 @@
 html {
   font-size: 10px;
-  background: url('../images/background.jpg') bottom center;
+  background: url('../images/background.jpg') center;
   background-size: cover;
 }
   
- body,html {
+ body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  min-height: 95rem;
+  min-width: 300px;
   justify-content: center;
+
 } 
 
-.keys {
+.keys-container {
   display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+/* .gamer {
+  transform: rotate(-90deg);
+} */
+.keys-player, .keys-pc {
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.key {
+.key, .key-pc, .gamer {
   display: flex;
-  border: .4rem solid black;
   border-radius: .5rem;
-  margin: 1rem;
-  font-size: 1.5rem;
-  padding: 1rem .5rem;
+  margin: 10px;
+  font-size: 1rem;
+  padding: 10px;
   transition: all .07s ease;
   width: 10rem;
   height: 10rem;
   text-align: center;
   color: white;
-  background: rgba(0,0,0,0.4);
+  background: rgba(255, 255, 255, 0.4);
   text-shadow: 0 0 .5rem black;
-
 }
 
 .text-area {
   display: flex;
-  border: .4rem solid black;
+  align-self:stretch;
   border-radius: .5rem;
-  margin: 1rem;
-  font-size: 1.5rem;
-  padding: 1rem .5rem;
+  font-size: 34px;
   transition: all .07s ease;
-  width: 10rem;
-  height: 10rem;
   text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
   justify-content: center;
+  color: white;
+  background: rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 .5rem black; 
+  margin: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 img {
@@ -64,4 +70,16 @@ img {
   transform: scale(1.1);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
 }

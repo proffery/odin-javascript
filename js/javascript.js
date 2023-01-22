@@ -3,16 +3,23 @@ let playerWins = 0;
 let draws = 0;
 const GAMES = 5;
 const keys = document.querySelectorAll('.key');
+const keysPc = document.querySelectorAll('.key-pc');
+const rockPc = document.querySelector('#rock-pc');
+const paperPc = document.querySelector('#paper-pc');
+const scissorsPc = document.querySelector('#scissors-pc');
 
 function getComputerChoice() {
     let cpChoise = Math.floor(Math.random() * 3);
     if (cpChoise === 0) {
+        rockPc.classList.add('playing');
         return 'rock';
     }
     else if (cpChoise === 1) {
+        paperPc.classList.add('playing');
         return 'paper';
     }
     else {
+        scissorsPc.classList.add('playing');
         return 'scissors';
     }
 }
@@ -120,5 +127,6 @@ function removeTransition(e) {
 keys.forEach(key => key.addEventListener('click', playRound));
 keys.forEach(key => key.addEventListener('click', playSound));
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+keysPc.forEach(key => key.addEventListener('transitionend', removeTransition));
 //console.log(game());
 

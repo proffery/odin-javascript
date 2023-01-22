@@ -6,27 +6,59 @@
 		<link rel="stylesheet" href="./css/style.css">
 	</head>
 	<body>
-		<div class="keys">
-			<div id="rock" data-key="82" class="key">
-				<img id="rock" src="./images/rock.png" alt="Rock">
-			</div>
+		<div class="text-area">
+			<p>
+				Rock, Paper or Scissors?
+			</p>
+		</div>
+		<div class="keys-container">
+			<div class="keys-player">
+				<div class="gamer">
+					<img src="./images/man.png" alt="Man">
+				</div>
+				<div id="rock" class="key">
+					<img id="rock" src="./images/rock.png" alt="Rock">
+				</div>
 
-			<div id="paper" data-key="80" class="key">
-				<img id="paper" src="./images/paper.png" alt="Paper">
-			</div>
+				<div id="paper" class="key">
+					<img id="paper" src="./images/paper.png" alt="Paper">
+				</div>
 
-			<div id="scissors" data-key="83" class="key">
-				<img id ="scissors" src="./images/scissor.png" alt="Scissors">
+				<div id="scissors" class="key">
+					<img id ="scissors" src="./images/scissor.png" alt="Scissors">
+				</div>
+			</div>
+			<div class="keys-pc">
+				<div class="gamer">
+					<img src="./images/pc.png" alt="Computer">
+				</div>
+				<div id="rock-pc" class="key-pc">
+					<img id="rock-pc" src="./images/rock.png" alt="Rock">
+				</div>
+
+				<div id="paper-pc" class="key-pc">
+					<img id="paper-pc" src="./images/paper.png" alt="Paper">
+				</div>
+
+				<div id="scissors-pc" class="key-pc">
+					<img id ="scissors-ps" src="./images/scissor.png" alt="Scissors">
+				</div>
 			</div>
 		</div>
+
 		<div class="text-area">
 			<p>
 				Some text.
 			</p>
 		</div>
-		<audio id="rock" data-key="82" src="./sounds/rock.mp3"></audio>
-		<audio id="paper" data-key="80" src="./sounds/paper.mp3"></audio>
-		<audio id="scissors" data-key="83" src="./sounds/scissors.mp3"></audio>
+
+		<div class="footer">
+			<div>© 2023<a href="mailto:proffery@gmail.com" title=" Dmitry Shamko"> Dmitry Shamko</a></div>
+		</div>
+
+		<audio id="rock" src="./sounds/rock.mp3"></audio>
+		<audio id="paper" src="./sounds/paper.mp3"></audio>
+		<audio id="scissors" src="./sounds/scissors.mp3"></audio>
 
         <script src="./js/javascript.js"></script>
     </body>
