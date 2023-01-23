@@ -80,8 +80,6 @@ function isEnd() {
 function playSound(e) {
     const audio = document.querySelector(`audio[id="${e.target.id}"]`)
     const key = document.querySelector(`div#${e.target.id}`);
-    if (!audio) return;
-    audio.currentTime = 0;
     audio.play();
     key.classList.add('playing');
 }
@@ -101,7 +99,10 @@ function endOfGame() {
     }
 
     const end = document.createElement('h1');
+    const reload = document.createElement('h3');
     end.textContent = `${winner} is WIN`;
+    reload.textContent = 'reload page for new game';
+    footer.appendChild(reload);
     footer.appendChild(end);
     footer.classList.add('end-game');
 
