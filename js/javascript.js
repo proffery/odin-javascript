@@ -31,50 +31,37 @@ function playRound(e) {
     const computerSelection = getComputerChoice();
     const playerSelection = e.target.id;
     e.stopPropagation();
-    
-    if (computerSelection === playerSelection) {
-        if (!isEnd()) {
+        if (computerSelection === playerSelection) {
             draws++;
             textBottom.textContent = `|PLAYER - ${playerWins}|Draws - ${draws}|PC - ${computerWins}|`;
             textTop.textContent = 'No winners...';
         }
-        else {
-            endOfGame();
-        }
-    }
-
-    else 
-    if (playerSelection === 'rock' &&  computerSelection === 'scissors' ||
-        playerSelection === 'scissors' &&  computerSelection === 'paper' ||
-        playerSelection === 'paper' &&  computerSelection === 'rock') {
-        if (!isEnd()) {
+        else 
+        if (playerSelection === 'rock' &&  computerSelection === 'scissors' ||
+            playerSelection === 'scissors' &&  computerSelection === 'paper' ||
+            playerSelection === 'paper' &&  computerSelection === 'rock') { 
             playerWins++;
             textBottom.textContent = `|PLAYER - ${playerWins}|Draws - ${draws}|PC - ${computerWins}|`;
             textTop.textContent =`You Won, ${playerSelection} beats ${computerSelection}!`;
-        }
+            if (isGameEnd()) {
+                endOfGame();
+            }
+        }       
         else {
-            endOfGame();
-        }
-    }       
-    else {
-        if (!isEnd()) {
             computerWins++;
             textBottom.textContent = `|PLAYER - ${playerWins}|Draws - ${draws}|PC - ${computerWins}|`;
             textTop.textContent = `You Lose, ${computerSelection} beats ${playerSelection}!`;
+            if (isGameEnd()) {
+                endOfGame();
+            }
         }
-        else {
-            endOfGame();
-        }
-    }    
 }
 
-function isEnd() {
+function isGameEnd() {
     if (playerWins >= GAMES || computerWins >= GAMES) {
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 function playSound(e) {
@@ -97,20 +84,16 @@ function endOfGame() {
     else {
         winner = 'PLAYER';
     }
-
     const end = document.createElement('h1');
     const reload = document.createElement('h3');
-    end.textContent = `${winner} is WIN`;
+    end.textContent = `${winner} IS WIN`;
     reload.textContent = 'reload page for new game';
     footer.appendChild(reload);
     footer.appendChild(end);
     footer.classList.add('end-game');
-
 }
 
-keys.forEach(key => key.addEventListener('click', playSound));
-keys.forEach(key => key.addEventListener('click', playRound));
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-keysPc.forEach(key => key.addEventListener('transitionend', removeTransition));
-//console.log(game());
-
+    keys.forEach(key => key.addEventListener('click', playSound));
+    keys.forEach(key => key.addEventListener('click', playRound));
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    keysPc.forEach(key => key.addEventListener('transitionend', removeTransition));
