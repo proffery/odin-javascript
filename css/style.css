@@ -1,7 +1,9 @@
 html {
   font-size: 10px;
+  font-family: fantasy;
+  color: #ffffff;
   background: url('../images/background.jpg') bottom center;
-  background-size:contain;
+  background-size: cover;
 }
   
  body {
