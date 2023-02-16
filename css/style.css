@@ -2,7 +2,7 @@ html {
   font-size: 10px;
   font-family: fantasy;
   color: #ffffff;
-  background: url('../images/background.jpg') bottom center;
+  background-image: linear-gradient(90deg, rgba(119,0,255,1) 39%, rgba(0,212,255,1) 100%);
   background-size: cover;
 }
   
@@ -18,33 +18,19 @@ html {
 
 .keys-container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }
 .gamer {
   display: flex;
-  border: 1px solid #eee ;
-  margin-right: 30px;
-  border-radius: .5rem;
-  font-size: 1rem;
-  padding: 10px;
-  transition: all .3s ease;
-  width: 10rem;
-  height: 10rem;
-  text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  text-shadow: 0 0 .5rem black;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  width: 20vw;
+  height: 20vw;
 }
 .keys-player, .keys-pc {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   margin: 10px;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 .key, .key-pc {
@@ -52,11 +38,11 @@ html {
   border-radius: .5rem;
   border: 1px solid #eee ;
   margin: 10px;
-  font-size: 1rem;
+  font-size: calc(1.2em + 3vw);
   padding: 10px;
-  transition: all .3s ease;
-  width: 10rem;
-  height: 10rem;
+  transition: all .2s ease;
+  width: 10vw;
+  height: 10vw;
   text-align: center;
   color: white;
   background: rgba(0, 0, 0, 0.4);
@@ -71,7 +57,7 @@ html {
   border: 1px solid #eee ;
   right: 0;
   left: 0;
-  font-size: 70px;
+  font-size: calc(1.2em + 3vw);;
   transition: all .07s ease;
   text-align: center;
   justify-content: center;
@@ -79,7 +65,7 @@ html {
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 .3rem rgb(0, 0, 0); 
   margin: 20px;
-  padding: 1rem;
+  padding: 0.01em;
 }
 
 img {
@@ -100,12 +86,12 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 52px;
+  height: 30px;
   display: flex;
   align-items: center;
   align-self: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0);
 }
 .end-game {
   font-family: fantasy;
@@ -114,9 +100,7 @@ img {
   color: rgb(255, 255, 255);
   position: fixed;
   transform: scale(3);
-  height: 1500px;
-  padding-bottom: 0px;
-  padding-top: 200px;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
